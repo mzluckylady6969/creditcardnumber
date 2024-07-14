@@ -60,10 +60,9 @@ public final class Name extends BaseRawData implements Serializable {
     if (obj == null) {
       return false;
     }
-    if (!(obj instanceof Name)) {
+    if (!(obj instanceof Name other)) {
       return false;
     }
-    final Name other = (Name) obj;
     if (firstName == null) {
       if (other.firstName != null) {
         return false;
@@ -72,13 +71,8 @@ public final class Name extends BaseRawData implements Serializable {
       return false;
     }
     if (lastName == null) {
-      if (other.lastName != null) {
-        return false;
-      }
-    } else if (!lastName.equalsIgnoreCase(other.lastName)) {
-      return false;
-    }
-    return true;
+      return other.lastName == null;
+    } else return lastName.equalsIgnoreCase(other.lastName);
   }
 
   /** See us.fatehi.creditcardnumber.RawData#exceedsMaximumLength() */

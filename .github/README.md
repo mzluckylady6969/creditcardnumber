@@ -2,7 +2,6 @@
 [![Quick Build](https://github.com/sualeh/creditcardnumber/actions/workflows/quick_build.yml/badge.svg)](https://github.com/sualeh/creditcardnumber/actions/workflows/quick_build.yml)
 [![The Central Repository](https://img.shields.io/maven-central/v/us.fatehi/creditcardnumber.svg)](https://search.maven.org/search?q=g:us.fatehi%20creditcardnumber*)
 
-
 # Credit Card Number
 
 *Credit Card Number* is a Java library that can provide details of a bank issued
@@ -12,7 +11,6 @@ credit card number.
 
 > **The goal of this project is to use publicly and freely available documentation
 to create a reliable Java library to provide information about credit card numbers.**
-
 
 ## Resources
 
@@ -25,24 +23,23 @@ Some resources consulted are:
 - [Luhn Algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm)
 - [Where can I find test credit card numbers?](https://www.paypal.com/us/smarthelp/article/where-can-i-find-test-credit-card-numbers-ts2157)
 
-
 ## Design Principles
 
 - All classes are immutable and thread-safe
 - Secure data follows standards in the
-[Java Cryptography Architecture (JCA) Reference Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html#PBEEx)
+  [Java Cryptography Architecture (JCA) Reference Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html#PBEEx)
 - The standard `toString()` function formats data in a readable form
 - Internationalization of card numbers is supported
 - Validity is enforced by JUnit 5 tests
 - Java 8 or newer is required
 - Android friendly
 
-
 ## Download and Use in Projects
 
-You can [download the jar on the Maven Central Repository](https://search.maven.org/artifact/us.fatehi/creditcardnumber).
-The [download page](https://search.maven.org/artifact/us.fatehi/creditcardnumber) has instructions on how to use the library in your Maven or Gradle build.
-
+You
+can [download the jar on the Maven Central Repository](https://search.maven.org/artifact/us.fatehi/creditcardnumber).
+The [download page](https://search.maven.org/artifact/us.fatehi/creditcardnumber) has instructions
+on how to use the library in your Maven or Gradle build.
 
 ## Examples
 
@@ -56,7 +53,9 @@ ExpirationDate expiration = new ExpirationDate(2015, 4);
 Name name = new Name("Sualeh", "Fatehi");
 ServiceCode serviceCode = new ServiceCode("225");
 BankCard card = new BankCard(pan, expiration, name, serviceCode);
-System.out.println(card);
+System.out.
+
+println(card);
 ```
 
 and you will get this output:
@@ -80,15 +79,19 @@ Bank Card Information:
     5 - Allowed Services: Goods and services only. PIN Requirements: PIN required.
 ```
 
-
 ### How to Secure the Credit Card Number
 
-If you need the account number information, but want to be secure by not storing the actual primary account number in memory, you can use code like:
+If you need the account number information, but want to be secure by not storing the actual primary
+account number in memory, you can use code like:
 
 ```java
 AccountNumber pan = AccountNumbers.completeAccountNumber("5266-0922-0141-6174");
-pan.dispose();
-System.out.println(pan.getAccountNumber());
+pan.
+
+dispose();
+System.out.
+
+println(pan.getAccountNumber());
 ```
 
 and you will get this output:
@@ -107,14 +110,16 @@ doing this:
 AccountNumber securePan = pan.toSecureAccountNumber();
 ```
 
-
 ### How to Encrypt the Credit Card Number
 
-If you need the account number information, but want to encrypt it using a cryptographic algorithm such as AES, you can use code like:
+If you need the account number information, but want to encrypt it using a cryptographic algorithm
+such as AES, you can use code like:
 
 ```java
 AccountNumber sealedPan = AccountNumbers.sealedAccountNumber("5266-0922-0141-6174", cipher);
-System.out.println(sealedPan.getAccountNumber());
+System.out.
+
+println(sealedPan.getAccountNumber());
 ```
 
 and you will get this output:
@@ -128,11 +133,13 @@ The account number can be decrypted by doing this:
 
 ```java
 AccountNumber pan = AccountNumbers.completeAccountNumber(sealedPan, key);
-System.out.println(pan.getAccountNumber());
+System.out.
+
+println(pan.getAccountNumber());
 ```
 
-The cipher and key are from [javax.crypto and java.security](https://docs.oracle.com/en/java/javase/17/security/java-security-overview1.html).
-
+The cipher and key are
+from [javax.crypto and java.security](https://docs.oracle.com/en/java/javase/17/security/java-security-overview1.html).
 
 ### Internationalization is Supported
 
@@ -140,7 +147,9 @@ You can use code like:
 
 ```java
 AccountNumber pan = AccountNumbers.completeAccountNumber("५२६६ ०९२२ ०१४१ ६१७४");
-System.out.println(pan.getAccountNumber());
+System.out.
+
+println(pan.getAccountNumber());
 ```
 
 and you will get this output:
@@ -148,7 +157,6 @@ and you will get this output:
 ```
 5266092201416174
 ```
-
 
 ### Look-ahead Typing
 
@@ -159,7 +167,9 @@ You can use code like:
 
 ```java
 CardBrand cardBrand = CardBrand.from("5366");
-System.out.println(cardBrand);
+System.out.
+
+println(cardBrand);
 ```
 
 and you will get this output:

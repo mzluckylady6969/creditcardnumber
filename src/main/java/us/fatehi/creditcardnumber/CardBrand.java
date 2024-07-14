@@ -115,7 +115,7 @@ public enum CardBrand {
    * Java 8 forward-compatible version of what should be a lambda. Written to compile in Java 7 for
    * use in Andriod projects.
    */
-  private static interface Predicate<T> {
+  private interface Predicate<T> {
 
     /**
      * Evaluates this predicate on the given argument.

@@ -31,11 +31,7 @@ public class AccountNumbersTestUtility {
     if (pan1.isPrimaryAccountNumberValid() != pan2.isPrimaryAccountNumberValid()) {
       return false;
     }
-    if (pan1.exceedsMaximumLength() != pan2.exceedsMaximumLength()) {
-      return false;
-    }
-
-    return true;
+    return pan1.exceedsMaximumLength() == pan2.exceedsMaximumLength();
   }
 
   private AccountNumbersTestUtility() {

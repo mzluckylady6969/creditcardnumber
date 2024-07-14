@@ -92,14 +92,10 @@ public final class ExpirationDate extends BaseRawData implements Serializable {
     if (obj == null) {
       return false;
     }
-    if (!(obj instanceof ExpirationDate)) {
+    if (!(obj instanceof ExpirationDate other)) {
       return false;
     }
-    final ExpirationDate other = (ExpirationDate) obj;
-    if (!Objects.equals(expirationDate, other.expirationDate)) {
-      return false;
-    }
-    return true;
+    return Objects.equals(expirationDate, other.expirationDate);
   }
 
   /** See us.fatehi.creditcardnumber.RawData#exceedsMaximumLength() */
