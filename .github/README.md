@@ -185,13 +185,3 @@ and you will get this output:
 ```
 MasterCard
 ```
-
-
-AccountNumber pan = AccountNumbers.completeAccountNumber("440206");
-ExpirationDate expiration = new ExpirationDate(2028, 4);
-Name name = new Name("Sualeh", "Fatehi");
-ServiceCode serviceCode = new ServiceCode("225");
-BankCard card = new BankCard(pan, expiration, name, serviceCode);
-System.out.
-
-println(card);
